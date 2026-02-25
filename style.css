@@ -1,0 +1,80 @@
+:root {
+    --yellow: #f6de03;
+    --red: #d30202;
+    --blue: #0251d1;
+    --black: #1c1a1a;
+}
+body {
+    background-image: url("Images/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.arcade-font {
+    font-family: 'Press Start 2P', cursive;
+    text-transform: uppercase;
+}
+.sf2-grid-container {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #000;
+    border: 4px solid var(--blue);
+    box-shadow: inset 0 0 20px var(--blue);
+}
+
+.sf2-card {
+    flex: 0 1 220px;
+    max-width: 220px;
+    min-width: 200px;
+    background-color: var(--black);
+    box-shadow:
+            0 0 0 4px var(--black),
+            0 0 0 8px var(--yellow),
+            0 0 15px 8px rgba(252, 227, 0, 0.5);
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.2s;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+
+.sf2-card:hover {
+    transform: scale(1.05);
+    z-index: 10;
+    cursor: pointer;
+}
+.card-portrait-frame {
+    background-color: #333;
+    border: 4px solid var(--blue);
+    height: 160px;
+    overflow: hidden;
+    margin-bottom: 15px;
+    position: relative;
+}
+.card-portrait {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    image-rendering: pixelated;
+}
+.card-name {
+    color: var(--yellow);
+    text-shadow: 2px 2px var(--red);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.card-details {
+    margin: 0;
+    font-size: 1.0rem;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+}
+
