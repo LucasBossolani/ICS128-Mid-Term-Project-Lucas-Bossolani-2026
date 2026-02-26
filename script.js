@@ -51,14 +51,12 @@ validator = () => {
     if (foundUser) {
         // Close Modal
         const closeBtn = document.getElementById('btn-close');
-        if(closeBtn) closeBtn.click(); // Safety check
+        if(closeBtn) closeBtn.click(); 
 
-        // A) ADMIN LOGIN
+        
         if (foundUser.admin) {
-            generateCardsAdmin(); // Now this works because we defined it above!
+            generateCardsAdmin();
         }
-        // B) STANDARD USER LOGIN
-        // B) STANDARD USER LOGIN
         else {
             //Creating Adm object in order to use the getAdmins method.
             const adminObject  = new Adm();
