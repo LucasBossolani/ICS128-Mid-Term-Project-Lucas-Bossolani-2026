@@ -14,7 +14,7 @@ generateCardsAdmin = () => {
     for (let i = 0; i < baseUsers.length; i++) {
         //+= is important in order get all the cards as my output
         grid.innerHTML += `
-            <div class="sf2-card">
+            <div id="card-${i}" class="sf2-card">
                 <div class="card-portrait-frame">
                     <img src="${baseUsers[i].pfp}" class="card-portrait">
                 </div>
@@ -28,12 +28,20 @@ generateCardsAdmin = () => {
                     </div>
                 </div>
                 <div class="card-admin-slot">
-                    <button class="btn btn-arcade-admin arcade-font">EDIT</button>
+                    <button id="del-btn" class="btn bg-transparent text-danger border-danger" data-index="${i}">Delete User</button>
                 </div>
             </div>
         `;
+        const button = document.querySelectorAll('#del-btn');
+
+        for (let i = 0; i < button.length; i++) {
+            button[i].addEventListener('click', function(){
+                document.getElementById(`card-${i}`).style.display = 'none';
+    });
+}
     }
-};
+}
+
 //function that validates the login
 validator = () => {
     //foundUser -> boolean variable. set to null before matching a user.

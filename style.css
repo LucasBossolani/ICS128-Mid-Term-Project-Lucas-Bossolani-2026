@@ -77,4 +77,6 @@ body {
     font-family: 'Courier New', monospace;
     font-weight: bold;
 }
-
+.del-btn {
+    background-color: transparent;
+}
