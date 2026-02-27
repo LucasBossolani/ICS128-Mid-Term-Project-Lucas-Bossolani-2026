@@ -30,15 +30,12 @@ body {
     max-width: 220px;
     min-width: 200px;
     background-color: var(--black);
-    box-shadow:
-            0 0 0 4px var(--black),
-            0 0 0 8px var(--yellow),
-            0 0 15px 8px rgba(252, 227, 0, 0.5);
+    box-shadow:0 0 0 4px var(--black),0 0 0 8px var(--yellow),0 0 15px 8px rgba(252, 227, 0, 0.5);
     padding: 10px;
     text-align: center;
     transition: transform 0.2s;
     position: relative;
-    margin-bottom: 10px;
+    margin: 5px;
 }
 
 
@@ -77,6 +74,5 @@ body {
     font-family: 'Courier New', monospace;
     font-weight: bold;
 }
-.del-btn {
-    background-color: transparent;
-}
+
+

@@ -49,7 +49,7 @@ validator = () => {
 
     // Search Logic
     for (let i = 0; i < baseUsers.length; i++) {
-        if (userNameInput.value === baseUsers[i].userName && userIdInput.value === baseUsers[i].uid) {
+        if (userNameInput.value.trim() === baseUsers[i].userName && userIdInput.value.trim() === baseUsers[i].uid) {
             foundUser = baseUsers[i];
             break;
         }
@@ -115,7 +115,8 @@ btn.addEventListener('click', validator);
 
 //ask joe
 //don't know how to launch the modal without using window.onload
-//please help ;-;
 window.onload = () => {
     new bootstrap.Modal(document.getElementById('login-modal')).show();
 };
+//ask joe
+//can admins delete other admins? 
