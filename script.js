@@ -10,19 +10,22 @@ generateCardsAdmin = () => {
     //cards container is set to hidden on my CCS file, display flex is applied only when login is successful
     grid.style.display = 'flex';
     grid.innerHTML = '';
+    
 //basic for loop that loops through all the elements on the baseUsers array and create a card for each element
     for (let i = 0; i < baseUsers.length; i++) {
-        //+= is important in order get all the cards as my output
+        if (baseUsers[i].admin === false) {
+        //+= is important in order get all the cards as an output
         grid.innerHTML += `
             <div id="card-${i}" class="sf2-card">
                 <div class="card-portrait-frame">
                     <img src="${baseUsers[i].pfp}" class="card-portrait">
                 </div>
                 <div class="card-info">
-                    <h3 class="card-name arcade-font">
+                    <h3 class="card-name fs-4">
                         ${baseUsers[i].personalName} ${baseUsers[i].familyName}
                     </h3>
                     <div class="card-details">
+                        <p>Admin Status: ${baseUsers[i].admin}</p>
                         <p>ID: ${baseUsers[i].uid}</p>
                         <p>${baseUsers[i].userName}</p>
                     </div>
@@ -39,8 +42,42 @@ generateCardsAdmin = () => {
                 document.getElementById(`card-${i}`).style.display = 'none';
     });
 }
+        }
+        if (baseUsers[i].admin === true) {
+            grid.innerHTML += `
+            <div id="card-${i}" class="sf2-adm-card">
+                <div class="card-portrait-frame">
+                    <img src="${baseUsers[i].pfp}" class="card-portrait">
+                </div>
+                <div class="card-info">
+                    <h3 class="card-name fs-4">
+                        ${baseUsers[i].personalName} ${baseUsers[i].familyName}
+                    </h3>
+                    <div class="card-details">
+                        <p>Admin Status: ${baseUsers[i].admin}</p>
+                        <p>ID: ${baseUsers[i].uid}</p>
+                        <p>${baseUsers[i].userName}</p>
+                    </div>
+                </div>
+                <div class="card-admin-slot">
+                    <button id="del-btn" class="btn bg-transparent text-danger border-danger" data-index="${i}">Delete User</button>
+                </div>
+            </div>
+        `;
+        const button = document.querySelectorAll('#del-btn');
+
+        for (let i = 0; i < button.length; i++) {
+            button[i].addEventListener('click', function(){
+                document.getElementById(`card-${i}`).style.display = 'none';
+    });
+}
+        }
+        
     }
 }
+
+
+       
 
 //function that validates the login
 validator = () => {
@@ -58,12 +95,13 @@ validator = () => {
     // Success/Failure Logic
     if (foundUser) {
         // Close Modal
-        const closeBtn = document.getElementById('btn-close');
-        if(closeBtn) closeBtn.click(); 
+       
+         document.getElementById('btn-close').click(); 
 
         
         if (foundUser.admin) {
             generateCardsAdmin();
+           
         }
         else {
             //Creating Adm object in order to use the getAdmins method.
@@ -80,6 +118,8 @@ validator = () => {
             grid.innerHTML = '';
             //for loop that loops through all the elements on the new array userToDisplay.
             for (let i = 0; i < usersToDisplay.length; i++) {
+
+            
                 //+= is important to get the desired output.
                 //= would result on just the last card created.
                 grid.innerHTML += `
@@ -88,7 +128,7 @@ validator = () => {
                             <img src="${usersToDisplay[i].pfp}"  class="card-portrait">
                         </div>
                         <div class="card-info">
-                            <h3 class="card-name arcade-font">
+                            <h3 class="card-name fs-4">
                                 ${usersToDisplay[i].personalName} ${usersToDisplay[i].familyName}
                             </h3>
                             <div class="card-details">
@@ -99,8 +139,9 @@ validator = () => {
                         <div class="card-admin-slot"></div>
                     </div>
                 `;
-            }
+            
         }
+    }
     } else {
         //if fails: display an error message
         errorMsg.innerText = 'Your credentials do not match any user.';
@@ -115,8 +156,8 @@ btn.addEventListener('click', validator);
 
 //ask joe
 //don't know how to launch the modal without using window.onload
-window.onload = () => {
-    new bootstrap.Modal(document.getElementById('login-modal')).show();
-};
+ window.onload = () => {
+     new bootstrap.Modal(document.getElementById('login-modal')).show();
+ };
 //ask joe
 //can admins delete other admins? 

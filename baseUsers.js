@@ -40,7 +40,7 @@ const baseUsers = [
 //In order to log in you need the Username and the Uid of the respective User. 
 
 //creating class Adm
-//This class is important because without it the code doesn't know what users are admins
+//It is important to declare Admins because the code has to know which users are admins in order to display the correct cards and the delete button
 class Adm {
     constructor(uid, personalName, familyName, userName, admin, pfp) {
         this.uid = uid;
@@ -51,14 +51,14 @@ class Adm {
         this.pfp = pfp;
     }
     //Setting the getAdmins method
-     getAdmins(userList) {
+     getAdmins(x) {
          //create an empty array called adminArray
         let adminArray = [];
 
         //Loop through the list provided (baseUsers) and pushes every element that has admin = true
-        for (let i = 0; i < userList.length; i++) {
-            if (userList[i].admin === true) {
-                adminArray.push(userList[i]);
+        for (let i = 0; i < x.length; i++) {
+            if (x[i].admin === true) {
+                adminArray.push(x[i]);
             }
         }
         //this next line is crucial. Without it the new adminArray would be stuck inside the loop
