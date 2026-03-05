@@ -19,8 +19,8 @@ const baseUsers = [
     { uid: 'Y60EW', personalName: 'Akuma', familyName: 'Joseph', userName: 'User 15', admin: true, pfp: 'Images/Akuma-icon.png' }
 ];
 //USER INFORMATION CHART
-// | Username | Uid | Role
-//--------------------------- 
+// | Username | Uid   | Role
+//-|----------|-------|------ 
 // | User 1   | 0OVMG | Admin
 // | User 2   | 21IGA | User
 // | User 3   | 2URBV | User

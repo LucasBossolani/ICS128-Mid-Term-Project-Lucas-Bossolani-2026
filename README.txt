@@ -6,8 +6,8 @@ On my page, you will be able to: Login as one of the users provided by me, obser
 
 The set up for this is very straight up: Run index.html and you're done. You'll find all user information on the file baseUsers.js.
 Here's the user information chart that I made in case you need it: 
- | Username | Uid | Role
---------------------------- 
+ | Username | Uid   | Role
+ |----------|-------|------ 
  | User 1   | 0OVMG | Admin
  | User 2   | 21IGA | User
  | User 3   | 2URBV | User
@@ -23,6 +23,8 @@ Here's the user information chart that I made in case you need it:
  | User 13  | U4MUD | User
  | User 14  | WNCQ7 | Admin
  | User 15  | Y60EW | Admin
+
+ My code doesn't handle uppercase characters on the login, so, use the credentials exactly how they are on the user chart.
  
 The Uid represents each user's respective password. 
 
